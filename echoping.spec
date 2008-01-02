@@ -10,6 +10,7 @@ BuildRequires:	openssl-devel
 BuildRequires:	libidn-devel
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 "echoping" is a small program to test (approximatively) performances of a
