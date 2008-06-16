@@ -1,7 +1,7 @@
 Summary:	TCP "echo" performance test
 Name:		echoping
 Version:	5.2.0
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		System/Base
 URL:		http://echoping.sourceforge.net/
