@@ -76,3 +76,4 @@ rm -rf %{buildroot}
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
 %{_libdir}/%{name}/*.so
+%{_libdir}/%{name}/*.la
