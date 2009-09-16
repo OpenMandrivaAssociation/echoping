@@ -1,11 +1,13 @@
 Summary:	TCP "echo" performance test
 Name:		echoping
 Version:	6.0.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPLv2+
 Group:		System/Base
 URL:		http://echoping.sourceforge.net/
 Source0:	ftp://ftp.internatif.org/pub/unix/echoping/echoping-%{version}.tar.bz2
+Patch0:     echoping-6.0.2-fix-plugin-loading.patch
+Patch1:     echoping-6.0.2-fix-autotools.patch
 BuildRequires:	openssl-devel
 BuildRequires:	libidn-devel
 BuildRequires:	libtool
@@ -28,9 +30,11 @@ Development files and headers for %{name}.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+autoreconf -f -i
 
 %build
-
 %configure2_5x \
     --disable-static \
     --enable-icp \
@@ -68,12 +72,11 @@ rm -rf %{buildroot}
 %doc AUTHORS ChangeLog README TODO DETAILS
 %dir %{_libdir}/%{name}
 %{_bindir}/echoping
-%{_libdir}/%{name}/*.so.0*
+%{_libdir}/%{name}/*.so
+%{_libdir}/%{name}/*.la
 %{_mandir}/man1/echoping*.1*
 
 %files devel
 %defattr(-,root,root)
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
-%{_libdir}/%{name}/*.so
-%{_libdir}/%{name}/*.la
