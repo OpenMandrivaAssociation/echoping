@@ -32,9 +32,9 @@ Development files and headers for %{name}.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-autoreconf -f -i
 
 %build
+autoreconf -fi
 %configure2_5x \
     --disable-static \
     --enable-icp \
