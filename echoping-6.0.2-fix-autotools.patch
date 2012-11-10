@@ -1,0 +1,75 @@
+diff -Naur -x '*~' echoping-6.0.2/configure.ac echoping-6.0.2-fix-autotools/configure.ac
+--- echoping-6.0.2/configure.ac	2007-04-05 14:40:49.000000000 +0200
++++ echoping-6.0.2-fix-autotools/configure.ac	2009-09-16 14:57:52.000000000 +0200
+@@ -1,7 +1,7 @@
+ dnl $Id: configure.ac 401 2007-04-05 12:26:38Z bortz $
+ 
+ dnl Process this file with autoconf to produce a configure script.
+-
++AC_INIT(echoping, 6.0.2, bortz@users.sourceforge.net)
+ m4_include(configure-common.ac)
+ AM_INIT_AUTOMAKE
+ AM_CONFIG_HEADER(config.h)
+diff -Naur -x '*~' echoping-6.0.2/configure-common.ac echoping-6.0.2-fix-autotools/configure-common.ac
+--- echoping-6.0.2/configure-common.ac	2009-09-16 14:54:58.000000000 +0200
++++ echoping-6.0.2-fix-autotools/configure-common.ac	2009-09-16 14:55:51.000000000 +0200
+@@ -1,5 +1,4 @@
+ dnl $Id: configure-common.ac 410 2007-04-09 19:49:29Z bortz $
+-AC_INIT(echoping, 6.0.2, bortz@users.sourceforge.net)
+ AC_CANONICAL_HOST
+ AC_PROG_CC(cc gcc)
+ AC_LIBTOOL_DLOPEN
+diff -Naur -x '*~' echoping-6.0.2/plugins/configure.ac echoping-6.0.2-fix-autotools/plugins/configure.ac
+--- echoping-6.0.2/plugins/configure.ac	2009-09-16 14:55:02.000000000 +0200
++++ echoping-6.0.2-fix-autotools/plugins/configure.ac	2009-09-16 14:56:08.000000000 +0200
+@@ -1,4 +1,5 @@
+ dnl $Id: configure.ac 407 2007-04-09 19:20:13Z bortz $
++AC_INIT(echoping, 6.0.2, bortz@users.sourceforge.net)
+ 
+ m4_include(../configure-common.ac)
+ AM_INIT_AUTOMAKE(foreign)
+diff -Naur -x '*~' echoping-6.0.2/plugins/dns/configure.ac echoping-6.0.2-fix-autotools/plugins/dns/configure.ac
+--- echoping-6.0.2/plugins/dns/configure.ac	2007-04-05 14:40:48.000000000 +0200
++++ echoping-6.0.2-fix-autotools/plugins/dns/configure.ac	2009-09-16 14:57:03.000000000 +0200
+@@ -1,4 +1,5 @@
+ dnl $Id: configure.ac 377 2007-03-12 20:48:05Z bortz $
++AC_INIT(echoping, 6.0.2, bortz@users.sourceforge.net)
+ 
+ m4_include([../../configure-common.ac])
+ AM_INIT_AUTOMAKE(foreign)
+diff -Naur -x '*~' echoping-6.0.2/plugins/ldap/configure.ac echoping-6.0.2-fix-autotools/plugins/ldap/configure.ac
+--- echoping-6.0.2/plugins/ldap/configure.ac	2009-09-16 14:55:05.000000000 +0200
++++ echoping-6.0.2-fix-autotools/plugins/ldap/configure.ac	2009-09-16 14:56:45.000000000 +0200
+@@ -1,4 +1,5 @@
+ dnl $Id: configure.ac 377 2007-03-12 20:48:05Z bortz $
++AC_INIT(echoping, 6.0.2, bortz@users.sourceforge.net)
+ 
+ m4_include([../../configure-common.ac])
+ AM_INIT_AUTOMAKE(foreign)
+diff -Naur -x '*~' echoping-6.0.2/plugins/postgresql/configure.ac echoping-6.0.2-fix-autotools/plugins/postgresql/configure.ac
+--- echoping-6.0.2/plugins/postgresql/configure.ac	2009-09-16 14:55:06.000000000 +0200
++++ echoping-6.0.2-fix-autotools/plugins/postgresql/configure.ac	2009-09-16 14:57:47.000000000 +0200
+@@ -1,4 +1,5 @@
+ dnl $Id: configure.ac 377 2007-03-12 20:48:05Z bortz $
++AC_INIT(echoping, 6.0.2, bortz@users.sourceforge.net)
+ 
+ m4_include([../../configure-common.ac])
+ AM_INIT_AUTOMAKE(foreign)
+diff -Naur -x '*~' echoping-6.0.2/plugins/random/configure.ac echoping-6.0.2-fix-autotools/plugins/random/configure.ac
+--- echoping-6.0.2/plugins/random/configure.ac	2007-04-05 14:40:48.000000000 +0200
++++ echoping-6.0.2-fix-autotools/plugins/random/configure.ac	2009-09-16 15:03:28.000000000 +0200
+@@ -1,4 +1,5 @@
+ dnl $Id: configure.ac 377 2007-03-12 20:48:05Z bortz $
++AC_INIT(echoping, 6.0.2, bortz@users.sourceforge.net)
+ 
+ m4_include(../../configure-common.ac)
+ AM_INIT_AUTOMAKE(foreign)
+diff -Naur -x '*~' echoping-6.0.2/plugins/whois/configure.ac echoping-6.0.2-fix-autotools/plugins/whois/configure.ac
+--- echoping-6.0.2/plugins/whois/configure.ac	2009-09-16 14:55:08.000000000 +0200
++++ echoping-6.0.2-fix-autotools/plugins/whois/configure.ac	2009-09-16 14:57:26.000000000 +0200
+@@ -1,4 +1,5 @@
+ dnl $Id: configure.ac 377 2007-03-12 20:48:05Z bortz $
++AC_INIT(echoping, 6.0.2, bortz@users.sourceforge.net)
+ 
+ m4_include([../../configure-common.ac])
+ AM_INIT_AUTOMAKE(foreign)

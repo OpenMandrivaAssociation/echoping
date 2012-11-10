@@ -1,0 +1,73 @@
+diff -Naur -x '*~' echoping-6.0.2/echoping.c echoping-6.0.2-fix-plugin-loading/echoping.c
+--- echoping-6.0.2/echoping.c	2007-04-05 14:40:49.000000000 +0200
++++ echoping-6.0.2-fix-plugin-loading/echoping.c	2009-09-16 14:11:02.000000000 +0200
+@@ -473,7 +473,7 @@
+ 	if (plugin_name) {
+ 		ext = strstr(plugin_name, ".so");
+ 		if ((ext == NULL) || (strcmp(ext, ".so") != 0))
+-			sprintf(plugin_name, "%s.so", plugin_name);
++			strcat(plugin_name, ".so");
+ 		plugin = dlopen(plugin_name, RTLD_NOW);
+ 		if (!plugin) {
+ 			/* Retries with the absolute name */
+diff -Naur -x '*~' echoping-6.0.2/plugins/dns/Makefile.am echoping-6.0.2-fix-plugin-loading/plugins/dns/Makefile.am
+--- echoping-6.0.2/plugins/dns/Makefile.am	2007-04-05 14:40:48.000000000 +0200
++++ echoping-6.0.2-fix-plugin-loading/plugins/dns/Makefile.am	2009-09-16 14:24:32.000000000 +0200
+@@ -1,7 +1,7 @@
+ if DNSBUILD
+ pkglib_LTLIBRARIES = dns.la
+ dns_la_SOURCES = dns.c
+-dns_la_LDFLAGS = -module
++dns_la_LDFLAGS = -module -avoid-version
+ endif
+ 
+ man_MANS = echoping_dns.1
+diff -Naur -x '*~' echoping-6.0.2/plugins/ldap/Makefile.am echoping-6.0.2-fix-plugin-loading/plugins/ldap/Makefile.am
+--- echoping-6.0.2/plugins/ldap/Makefile.am	2007-04-05 14:40:48.000000000 +0200
++++ echoping-6.0.2-fix-plugin-loading/plugins/ldap/Makefile.am	2009-09-16 14:24:40.000000000 +0200
+@@ -1,7 +1,7 @@
+ if LDAPBUILD
+ pkglib_LTLIBRARIES = ldap.la
+ ldap_la_SOURCES = ldap.c
+-ldap_la_LDFLAGS = -module
++ldap_la_LDFLAGS = -module -avoid-version
+ endif
+ man_MANS = echoping_ldap.1
+ 
+diff -Naur -x '*~' echoping-6.0.2/plugins/postgresql/Makefile.am echoping-6.0.2-fix-plugin-loading/plugins/postgresql/Makefile.am
+--- echoping-6.0.2/plugins/postgresql/Makefile.am	2007-04-05 14:40:48.000000000 +0200
++++ echoping-6.0.2-fix-plugin-loading/plugins/postgresql/Makefile.am	2009-09-16 14:24:51.000000000 +0200
+@@ -1,7 +1,7 @@
+ if PGSQLBUILD
+ pkglib_LTLIBRARIES = postgresql.la
+ postgresql_la_SOURCES = postgresql.c
+-postgresql_la_LDFLAGS = -module
++postgresql_la_LDFLAGS = -module -avoid-version
+ endif
+ man_MANS = echoping_postgresql.1
+ 
+diff -Naur -x '*~' echoping-6.0.2/plugins/random/Makefile.am echoping-6.0.2-fix-plugin-loading/plugins/random/Makefile.am
+--- echoping-6.0.2/plugins/random/Makefile.am	2007-04-05 14:40:48.000000000 +0200
++++ echoping-6.0.2-fix-plugin-loading/plugins/random/Makefile.am	2009-09-16 14:24:59.000000000 +0200
+@@ -1,6 +1,6 @@
+ pkglib_LTLIBRARIES = random.la
+ random_la_SOURCES = random.c
+-random_la_LDFLAGS = -module
++random_la_LDFLAGS = -module -avoid-version
+ man_MANS = echoping_random.1
+ 
+-EXTRA_DIST = $(man_MANS)
+\ Pas de fin de ligne à la fin du fichier.
++EXTRA_DIST = $(man_MANS)
+diff -Naur -x '*~' echoping-6.0.2/plugins/whois/Makefile.am echoping-6.0.2-fix-plugin-loading/plugins/whois/Makefile.am
+--- echoping-6.0.2/plugins/whois/Makefile.am	2007-04-05 14:40:48.000000000 +0200
++++ echoping-6.0.2-fix-plugin-loading/plugins/whois/Makefile.am	2009-09-16 14:25:07.000000000 +0200
+@@ -2,7 +2,7 @@
+ 
+ pkglib_LTLIBRARIES = whois.la
+ whois_la_SOURCES = whois.c
+-whois_la_LDFLAGS = -module
++whois_la_LDFLAGS = -module -avoid-version
+ man_MANS = echoping_whois.1
+ 
+ EXTRA_DIST = $(man_MANS) test.sh
