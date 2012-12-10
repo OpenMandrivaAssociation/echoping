@@ -1,7 +1,7 @@
 Summary:	TCP "echo" performance test
 Name:		echoping
 Version:	6.0.2
-Release:	%mkrel 4
+Release:	5
 License:	GPLv2+
 Group:		System/Base
 URL:		http://echoping.sourceforge.net/
@@ -14,7 +14,6 @@ BuildRequires:	libtool
 BuildRequires:	openldap-devel
 BuildRequires:	popt-devel
 BuildRequires:	postgresql-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 "echoping" is a small program to test (approximatively) performances of a
@@ -60,23 +59,16 @@ autoreconf -fi
 #fi
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog README TODO DETAILS
 %dir %{_libdir}/%{name}
 %{_bindir}/echoping
 %{_libdir}/%{name}/*.so
-%{_libdir}/%{name}/*.la
 %{_mandir}/man1/echoping*.1*
 
 %files devel
-%defattr(-,root,root)
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*.h
+
