@@ -4,7 +4,7 @@ Version:	6.0.2
 Release:	6
 License:	GPLv2+
 Group:		System/Base
-URL:		http://echoping.sourceforge.net/
+URL:		https://echoping.sourceforge.net/
 Source0:	ftp://ftp.internatif.org/pub/unix/echoping/echoping-%{version}.tar.bz2
 Patch0:     echoping-6.0.2-fix-plugin-loading.patch
 Patch1:     echoping-6.0.2-fix-autotools.patch
